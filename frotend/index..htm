@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Tienda de Ropa - CRUD</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Gestión de Productos de Tienda</h1>
+        <nav>
+            <a href="#productos-vista">Ver Productos</a>
+            <a href="#admin-productos">Administrar Productos</a>
+            <a href="#carrito-vista">Carrito (<span id="cantidad-carrito">0</span>)</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="admin-productos" class="admin-container">
+            <h2>Administrar Productos</h2>
+            <form id="form-producto">
+                <input type="hidden" id="producto-id"> <div>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div>
+                    <label for="descripcion">Descripción:</label>
+                    <textarea id="descripcion" name="descripcion"></textarea>
+                </div>
+                <div>
+                    <label for="precio">Precio:</label>
+                    <input type="number" id="precio" name="precio" step="0.01" required>
+                </div>
+                <div>
+                    <label for="stock">Stock:</label>
+                    <input type="number" id="stock" name="stock" step="1" required>
+                </div>
+                <div>
+                    <label for="tallas">Tallas (separadas por coma):</label>
+                    <input type="text" id="tallas" name="tallas">
+                </div>
+                <div>
+                    <label for="colores">Colores (separados por coma):</label>
+                    <input type="text" id="colores" name="colores">
+                </div>
+                <div>
+                    <label for="imagen_url">URL de Imagen:</label>
+                    <input type="url" id="imagen_url" name="imagen_url">
+                </div>
+                <button type="submit" id="btn-guardar-producto">Guardar Producto</button>
+                <button type="button" id="btn-cancelar-edicion" style="display:none;">Cancelar Edición</button>
+            </form>
+
+            <h3>Lista de Productos (Admin)</h3>
+            <table id="tabla-productos-admin">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="cuerpo-tabla-productos-admin">
+                    </tbody>
+            </table>
+        </section>
+
+        <section id="productos-vista" class="productos-container">
+            <h2>Nuestros Productos</h2>
+            <div id="lista-productos-cliente" class="grid-productos">
+                </div>
+        </section>
+
+        <section id="detalle-producto-modal" class="modal" style="display:none;">
+             <div class="modal-contenido">
+                <span class="cerrar-modal" onclick="cerrarModalDetalle()">&times;</span>
+                <h3 id="modal-nombre-producto"></h3>
+                <img id="modal-imagen-producto" src="" alt="Imagen del producto" style="max-width: 200px;">
+                <p id="modal-descripcion-producto"></p>
+                <p><strong>Precio:</strong> $<span id="modal-precio-producto"></span></p>
+                <p><strong>Stock:</strong> <span id="modal-stock-producto"></span></p>
+                <p><strong>Tallas disponibles:</strong> <span id="modal-tallas-producto"></span></p>
+                <p><strong>Colores disponibles:</strong> <span id="modal-colores-producto"></span></p>
+                <button id="btn-anadir-carrito-modal" onclick="agregarAlCarritoDesdeModal()">Añadir al Carrito</button>
+            </div>
+        </section>
+
+        <section id="carrito-vista" class="carrito-container">
+            <h2>Tu Carrito de Compras</h2>
+            <ul id="lista-carrito"></ul>
+            <p><strong>Total: $<span id="total-carrito">0.00</span></strong></p>
+            <button onclick="vaciarCarrito()">Vaciar Carrito</button>
+            <button onclick="procesarCompra()">Procesar Compra</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Mi Tienda de Ropa</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

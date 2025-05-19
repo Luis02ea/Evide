@@ -1,0 +1,270 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header nav a {
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.productos-container, .carrito-container {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.grid-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.producto-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.producto-card img {
+    max-width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.producto-card h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+}
+
+.producto-card .precio {
+    font-weight: bold;
+    color: #5cb85c;
+    margin: 10px 0;
+}
+
+.producto-card button {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.producto-card button:hover {
+    background-color: #4cae4c;
+}
+
+#lista-carrito li {
+    list-style: none;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#lista-carrito li:last-child {
+    border-bottom: none;
+}
+
+#lista-carrito button {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 0.8em;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    margin-top: 30px;
+}
+
+/* Estilos para el Modal */
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+.modal-contenido {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative; 
+}
+
+.cerrar-modal {
+    color: #aaa;
+    float: right; 
+    position: absolute; 
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.cerrar-modal:hover,
+.cerrar-modal:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.admin-container {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+#form-producto div {
+    margin-bottom: 15px;
+}
+
+#form-producto label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#form-producto input[type="text"],
+#form-producto input[type="number"],
+#form-producto input[type="url"],
+#form-producto textarea {
+    width: calc(100% - 22px); 
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#form-producto textarea {
+    height: 80px;
+    resize: vertical;
+}
+
+#form-producto button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+#form-producto button:hover {
+    background-color: #0056b3;
+}
+
+#form-producto #btn-cancelar-edicion {
+    background-color: #6c757d;
+}
+#form-producto #btn-cancelar-edicion:hover {
+    background-color: #545b62;
+}
+
+
+#tabla-productos-admin {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#tabla-productos-admin th,
+#tabla-productos-admin td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#tabla-productos-admin th {
+    background-color: #f2f2f2;
+}
+
+#tabla-productos-admin .btn-accion {
+    padding: 5px 10px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    color: white;
+}
+
+#tabla-productos-admin .btn-editar {
+    background-color: #ffc107; 
+    color: #333;
+}
+#tabla-productos-admin .btn-editar:hover {
+    background-color: #e0a800;
+}
+
+#tabla-productos-admin .btn-eliminar {
+    background-color: #dc3545; 
+}
+#tabla-productos-admin .btn-eliminar:hover {
+    background-color: #c82333;
+}
+
+#productos-vista, #carrito-vista {
+    margin-top: 30px;
+}
