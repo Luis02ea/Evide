@@ -1,17 +1,17 @@
 from flask import Flask, jsonify, request
 from pymongo import MongoClient
-from bson import ObjectId # Para manejar los IDs de MongoDB
+from bson import ObjectId 
 from flask_cors import CORS 
 
 app = Flask(__name__)
 CORS(app)
 
-# --- Configuración de MongoDB ---
-client = MongoClient('mongodb://localhost:27017/')
+
+client: MongoClient = MongoClient('mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.5.1')
 db = client['tienda_ropa_db']
 productos_collection = db['productos']
 
-# --- Datos de ejemplo (para insertar si la colección está vacía) ---
+
 def popular_db_si_vacia():
     if productos_collection.count_documents({}) == 0:
         productos_ejemplo = [
